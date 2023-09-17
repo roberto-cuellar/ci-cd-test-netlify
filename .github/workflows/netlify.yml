@@ -31,7 +31,7 @@ jobs:
     - name: Deploy to Netlify
       uses: nwtgck/actions-netlify@v2.0
       with:
-        publish-dir: './dist'
+        publish-dir: './angular-ci-cd-test/dist'
         production-branch: master
         deploy-message: "Deploy from GitHub Actions"
         enable-pull-request-comment: false
