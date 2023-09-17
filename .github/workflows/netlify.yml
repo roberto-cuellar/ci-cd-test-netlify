@@ -33,18 +33,14 @@ jobs:
         git config user.name "Roberto Cuellar"
         git config user.email "lozano.roberto.2018@gmail.com"
         
+        # Set Git to use the personal access token
+        git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/roberto-cuellar/ci-cd-test-netlify.git
 
         git checkout main
-
-
         git checkout -b dist-history || git checkout dist-history
-
-
         git rebase main
-
         git push origin dist-history --force-with-lease
-      env:
-        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
 
 
 
