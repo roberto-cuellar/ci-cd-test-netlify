@@ -30,8 +30,8 @@ jobs:
 
     - name: Copy main to dist-history branch
       run: |
-        git config user.name "GitHub Actions Bot"
-        git config user.email "github-actions@github.com"
+        git config user.name "Roberto Cuellar"
+        git config user.email "lozano.roberto.2018@gmail.com"
         
 
         git checkout main
