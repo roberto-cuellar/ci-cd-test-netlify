@@ -28,16 +28,19 @@ jobs:
         npx ng build
       continue-on-error: false   
 
-    - name: Commit and push dist directory
+    - name: Copy changes to dist-history branch
       run: |
         git config user.name "GitHub Actions Bot"
-        git config user.email "lozano.roberto.2018@gmail.com"
-            
-        # Check if dist-history branch exists and if not create it
-        git checkout dist-history || git checkout -b dist-history
-            
-        git add ./angular-ci-cd-test/dist/
-        git commit -m "Adding dist for deployment on $(date +'%Y-%m-%d %H:%M:%S')"
+        git config user.email "github-actions@github.com"
+        
+        # Create a new branch or switch to dist-history without checking out its files
+        git branch dist-history || true
+        git symbolic-ref HEAD refs/heads/dist-history
+        
+        # Commit the changes from main
+        git commit -am "Copying changes from main on $(date +'%Y-%m-%d %H:%M:%S')"
+        
+        # Push the changes to dist-history
         git push origin dist-history
 
 
