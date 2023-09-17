@@ -43,6 +43,8 @@ jobs:
         git rebase main
 
         git push origin dist-history --force-with-lease
+      env:
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
 
 
