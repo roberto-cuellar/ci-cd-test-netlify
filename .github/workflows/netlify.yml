@@ -25,7 +25,7 @@ jobs:
     - name: Build Angular Project
       run: |
         cd angular-ci-cd-test 
-        npx ng build --prod
+        npx ng build
       continue-on-error: false   
 
     - name: Deploy to Netlify
