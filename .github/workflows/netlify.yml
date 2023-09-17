@@ -25,8 +25,8 @@ jobs:
     - name: Run Angular Tests
       run: |
         cd angular-ci-cd-test
-        npx ng test --watch=false
-      continue-on-error: false 
+        npx ng test --browsers=ChromeHeadlessNoSandbox --watch=false
+
 
     - name: Build Angular Project
       run: |
