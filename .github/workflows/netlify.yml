@@ -37,11 +37,15 @@ jobs:
         git branch dist-history || true
         git symbolic-ref HEAD refs/heads/dist-history
         
-        # Commit the changes from main
-        git commit -am "Copying changes from main on $(date +'%Y-%m-%d %H:%M:%S')"
-        
-        # Push the changes to dist-history
-        git push origin dist-history
+        # Check if there are any changes
+        if [[ -n "$(git status --porcelain)" ]]; then
+          # Commit the changes from main
+          git commit -am "Copying changes from main on $(date +'%Y-%m-%d %H:%M:%S')"
+          
+          # Push the changes to dist-history
+          git push origin dist-history
+        fi
+
 
 
     - name: Deploy to Netlify
